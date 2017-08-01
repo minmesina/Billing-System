@@ -41,15 +41,11 @@ function display_clients(data) {
 
 function form_project(id) {
     $.ajax({
-        url: "clients/single_client/" + id,
+        url: "project/single_project/" + id,
         success: function (data) {
             data = JSON.parse(data);
             $('#client_id').val(data.id);
             $('#editName').val(data.company_name);
-            $('#editLocation').val(data.location);
-            $('#editPerson').val(data.contact_person);
-            $('#editEmail').val(data.email_address);
-            $('#editMOP').val(data.mode_of_payment);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error get data from ajax');
@@ -58,13 +54,21 @@ function form_project(id) {
 }
 
 function view_project(id) {
-    form_client(id);
-    $('#editName').prop('readonly', true);
-    $('#editLocation').prop('readonly', true);
-    $('#editPerson').prop('readonly', true);
-    $('#editEmail').prop('readonly', true);
-    $('#editMOP').prop('readonly', true);
-    $('#btn-save_client_update').hide();
+    $.ajax({
+        url: "projects/single_project/" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            $('#panel-project-name').text(data.project_name);
+            if(data.description == ""){
+                $('#panel-project-description').text("No Description");
+            }else{
+                $('#panel-project-description').text(data.description);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Error get data from ajax');
+        }
+    });
 }
 
 function edit_project(id) {

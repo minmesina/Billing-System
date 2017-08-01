@@ -25,4 +25,9 @@ class Project_model extends CI_Model{
 		$query = $this->db->get_where( 'Clients_projects', array( 'project_id' => $id));
 		return $query->result_array();
 	}
+
+	public function get_project($id){
+		$query = $this->db->get_where( 'Projects', array( 'id' => $id));
+		return $query->row();
+	}
 }

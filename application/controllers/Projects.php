@@ -34,4 +34,9 @@ class Projects extends CI_Controller{
 		$data['clients'] = $this->project_model->get_clients($id);
 		echo json_encode($data['clients']);
 	}
+
+	public function single_project($id){
+		$data['single_project'] = $this->project_model->get_project($id);
+		echo json_encode($data['single_project']);
+	}
 }

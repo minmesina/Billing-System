@@ -10,7 +10,7 @@
 					<thead>
 					<tr>
 						<th>Client</th>
-						<th>Rate($)</th>
+						<th>Rate</th>
 						<th>Date Started</th>
 					</tr>
 					</thead>

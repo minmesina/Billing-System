@@ -1,6 +1,7 @@
 <?php
     require('client.php');
     require('create.php');
+    require('project_description.php');
 ?>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
@@ -12,7 +13,7 @@
 				<li class="list-group-item">
 					<div class="row">
 						<div class="col-md-12">
-							<a href="#"  onclick="view_project(<?php echo $project['id']; ?>)" data-toggle="modal" data-target="#modal-edit-project"><?php echo $project['project_name']; ?></a>
+							<a href="#"  onclick="view_project(<?php echo $project['id']; ?>)" data-toggle="modal" data-target="#modal-display-project"><?php echo $project['project_name']; ?></a>
 							<button type="button" class="btn btn-success pull-right" onclick="view_project_client(<?php echo $project['id']; ?>)" data-toggle="modal" data-target="#modal-project-client">Clients</button>
                             <button type="button" class="btn btn-default pull-right" onclick="edit_client(<?php echo $project['id']; ?>)" style="margin-right: 10px;" data-toggle="modal" data-target="#modal-edit-project">Edit</button>
                         </div>

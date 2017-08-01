@@ -10,7 +10,7 @@
                     <thead>
                         <tr>
                             <th>Project</th>
-                            <th>Rate($)</th>
+                            <th>Rate</th>
                             <th>Date Started</th>
                             <th>Date Ended</th>
                         </tr>
