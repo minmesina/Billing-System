@@ -20,8 +20,6 @@
         <div id="navbar">
           <ul class="nav navbar-nav">
 	          <?php if($this->session->userdata('logged_in')) : ?>
-                  <li><a href="<?php echo base_url(); ?>about">About</a></li>
-                  <li><a href="<?php echo base_url(); ?>posts">Blog</a></li>
                   <li><a href="<?php echo base_url(); ?>clients">Clients</a></li>
                   <li><a href="<?php echo base_url(); ?>projects">Projects</a></li>
 	          <?php endif; ?>
@@ -33,8 +31,6 @@
           <?php endif; ?>
           <?php if($this->session->userdata('logged_in')) : ?>
               <li><a href="<?php echo base_url(); ?>logs/create">LOG HERE</a></li>
-              <li><a href="<?php echo base_url(); ?>posts/create">Create Post</a></li>
-              <li><a href="<?php echo base_url(); ?>clients/create">Create Category</a></li>
               <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
           <?php endif; ?>
           </ul>
