@@ -10,16 +10,13 @@ class Project_model extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function create_client(){ //edit
+	public function create_project(){
 		$data = array(
-			'company_name' => $this->input->post('company_name'),
-			'location' => $this->input->post('location'),
-			'contact_person' => $this->input->post('contact_person'),
-			'email_address' => $this->input->post('email_address'),
-			'mode_of_payment' => $this->input->post('mode_payment')
+			'project_name' => $this->input->post('project_name'),
+			'description' => $this->input->post('project_description')
 		);
 
-		return $this->db->insert( 'Clients', $data);
+		return $this->db->insert( 'Projects', $data);
 	}
 
 	public function get_clients($id){

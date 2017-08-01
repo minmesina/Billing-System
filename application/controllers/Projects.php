@@ -8,31 +8,25 @@ class Projects extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
-	public function create(){ //edit
+	public function create(){
 		// Check login
 		if(!$this->session->userdata('logged_in')){
 			redirect('users/login');
 		}
 
-		$data['title'] = 'Create Project';
-
-		$this->form_validation->set_rules('company_name', 'Company Name', 'required');
-		$this->form_validation->set_rules('location', 'Location', 'required');
-		$this->form_validation->set_rules('contact_person', 'Contact Person', 'required');
-		$this->form_validation->set_rules('email_address', 'Email Address', 'required');
-		$this->form_validation->set_rules('mode_payment', 'Mode Payment', 'required');
+		$this->form_validation->set_rules('project_name', 'Project Name', 'required');
+		$this->form_validation->set_rules('project_description', 'Project Description', 'required');
 
 		if($this->form_validation->run() === FALSE){
 			$this->load->view('templates/header');
-			$this->load->view('clients/create', $data);
+			$this->load->view('projects/index');
 			$this->load->view('templates/footer');
 		} else {
-			$this->client_model->create_client();
-
+			$this->project_model->create_project();
 			// Set message
 			$this->session->set_flashdata('client_created', 'Project has been created!');
 
-			redirect( 'clients' );
+			redirect( 'projects' );
 		}
 	}
 

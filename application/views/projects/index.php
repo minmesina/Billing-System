@@ -1,5 +1,6 @@
 <?php
     require('client.php');
+    require('create.php');
 ?>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
@@ -21,7 +22,7 @@
 		</ul>
 	</div>
 	<div class="col-md-10 col-md-offset-1 col-xs-8">
-		<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-add-client">Add Project</button>
+		<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal-add-project">Add Project</button>
 	</div>
 </div>
 
