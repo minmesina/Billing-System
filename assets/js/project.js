@@ -39,20 +39,6 @@ function display_clients(data) {
     }
 }
 
-function form_project(id) {
-    $.ajax({
-        url: "project/single_project/" + id,
-        success: function (data) {
-            data = JSON.parse(data);
-            $('#client_id').val(data.id);
-            $('#editName').val(data.company_name);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert('Error get data from ajax');
-        }
-    });
-}
-
 function view_project(id) {
     $.ajax({
         url: "projects/single_project/" + id,
@@ -72,12 +58,18 @@ function view_project(id) {
 }
 
 function edit_project(id) {
-    form_client(id);
-    $('#editName').prop('readonly', false);
-    $('#editLocation').prop('readonly', false);
-    $('#editPerson').prop('readonly', false);
-    $('#editEmail').prop('readonly', false);
-    $('#editMOP').prop('readonly', false);
-    $('#btn-save_client_update').show();
+    $('#editDescription').val("");
+    $.ajax({
+        url: "projects/single_project/" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            $('#project_id').val(data.id);
+            $('#editProjName').val(data.project_name);
+            $('#editDescription').val(data.description);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Error get data from ajax');
+        }
+    });
 }
 

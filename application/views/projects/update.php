@@ -11,17 +11,17 @@
 				<fieldset class="well">
 					<div class="col-md-12">
 						<div class="form-group">
-							<label for="editName" class="col-md-4 control-label">Project Name</label>
+							<label for="editProjName" class="col-md-4 control-label">Project Name</label>
 							<div class="col-md-8">
-								<input type="hidden" id="project_id" name="client_id">
-								<input type="text" id="editName" name="company_name" class="form-control" placeholder="Enter Company Name" required>
+								<input type="hidden" id="project_id" name="project_id">
+								<input type="text" id="editProjName" name="project_name" class="form-control" placeholder="Enter Project Name" required>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="editLocation" class="col-md-4 control-label">Description</label>
+							<label for="editDescription" class="col-md-4 control-label">Description</label>
 							<div class="col-md-8">
-								<input type="text" id="editLocation" name="location" class="form-control" placeholder="Enter Location" required>
-							</div>
+                                <textarea id="editDescription" name="project_description" class="form-control" required autofocus></textarea>
+                            </div>
 						</div>
 					</div>
 				</fieldset>

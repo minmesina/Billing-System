@@ -30,4 +30,14 @@ class Project_model extends CI_Model{
 		$query = $this->db->get_where( 'Projects', array( 'id' => $id));
 		return $query->row();
 	}
+
+	public function update_project(){
+		$data = array(
+			'project_name' => $this->input->post('project_name'),
+			'description' => $this->input->post('project_description')
+		);
+
+		$this->db->where('id', $this->input->post('project_id'));
+		return $this->db->update('Projects', $data);
+	}
 }
