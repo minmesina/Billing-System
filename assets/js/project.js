@@ -24,7 +24,7 @@ function display_clients(data) {
 
     for(i=0;i<cnt;i++){
         var date_started = new Date(data[i].date_started);
-        var day = date_started.getDay();
+        var day = date_started.getDate();
         var month = monthNames[date_started.getMonth()];
         var year = date_started.getFullYear();
 
@@ -33,23 +33,33 @@ function display_clients(data) {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
         cell1.innerHTML = data[i].company_name;
         cell2.innerHTML = data[i].rate_per_hour;
         cell3.innerHTML = month + " " + day + ", " + year;
+        if(data[i].date_ended != "0000-00-00"){
+            var date_ended = new Date(data[i].date_ended);
+            var end_day = date_ended.getDate();
+            var end_month = monthNames[date_ended.getMonth()];
+            var end_year = date_ended.getFullYear();
+            cell4.innerHTML = end_month + " " + end_day + ", " + end_year;
+        }else{
+            cell4.innerHTML = "Ongoing";
+        }
     }
 }
 
-function form_project(id) {
+function view_project(id) {
     $.ajax({
-        url: "clients/single_client/" + id,
+        url: "projects/single_project/" + id,
         success: function (data) {
             data = JSON.parse(data);
-            $('#client_id').val(data.id);
-            $('#editName').val(data.company_name);
-            $('#editLocation').val(data.location);
-            $('#editPerson').val(data.contact_person);
-            $('#editEmail').val(data.email_address);
-            $('#editMOP').val(data.mode_of_payment);
+            $('#panel-project-name').text(data.project_name);
+            if(data.description == ""){
+                $('#panel-project-description').text("No Description");
+            }else{
+                $('#panel-project-description').text(data.description);
+            }
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert('Error get data from ajax');
@@ -57,23 +67,18 @@ function form_project(id) {
     });
 }
 
-function view_project(id) {
-    form_client(id);
-    $('#editName').prop('readonly', true);
-    $('#editLocation').prop('readonly', true);
-    $('#editPerson').prop('readonly', true);
-    $('#editEmail').prop('readonly', true);
-    $('#editMOP').prop('readonly', true);
-    $('#btn-save_client_update').hide();
-}
-
 function edit_project(id) {
-    form_client(id);
-    $('#editName').prop('readonly', false);
-    $('#editLocation').prop('readonly', false);
-    $('#editPerson').prop('readonly', false);
-    $('#editEmail').prop('readonly', false);
-    $('#editMOP').prop('readonly', false);
-    $('#btn-save_client_update').show();
+    $('#editDescription').val("");
+    $.ajax({
+        url: "projects/single_project/" + id,
+        success: function (data) {
+            data = JSON.parse(data);
+            $('#project_id').val(data.id);
+            $('#editProjName').val(data.project_name);
+            $('#editDescription').val(data.description);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Error get data from ajax');
+        }
+    });
 }
-
