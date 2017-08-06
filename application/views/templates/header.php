@@ -3,12 +3,13 @@
 		<title>BillingSystem</title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+        <script src="<?php echo base_url(); ?>assets/js/jquery-3.2.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/javascript.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/client.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/project.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/jquery-3.2.1.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/task.js"></script>
 	</head>
 	<body>
 
@@ -30,7 +31,7 @@
             <li><a href="<?php echo base_url(); ?>users/register">Register</a></li>
           <?php endif; ?>
           <?php if($this->session->userdata('logged_in')) : ?>
-              <li><a href="<?php echo base_url(); ?>logs/create">LOG HERE</a></li>
+              <li><a href="<?php echo base_url(); ?>tasks">Task</a></li>
               <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
           <?php endif; ?>
           </ul>

@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<div class="well">
-			<?php echo form_open_multipart('logs/create'); ?>
+			<?php echo form_open_multipart('tasks/create'); ?>
 				<div class="form-group">
 					<label>Project</label>
 					<select name="category_id" class="form-control">

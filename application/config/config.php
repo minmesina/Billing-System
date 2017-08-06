@@ -221,7 +221,7 @@ $config['log_threshold'] = 0;
 |--------------------------------------------------------------------------
 |
 | Leave this BLANK unless you would like to set something other than the default
-| application/logs/ directory. Use a full server path with trailing slash.
+| application/tasks/ directory. Use a full server path with trailing slash.
 |
 */
 $config['log_path'] = '';
@@ -254,7 +254,7 @@ $config['log_file_permissions'] = 0644;
 
 /*
 |--------------------------------------------------------------------------
-| Date Format for Logs
+| Date Format for Tasks
 |--------------------------------------------------------------------------
 |
 | Each item that is logged has an associated date. You can use PHP date

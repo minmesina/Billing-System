@@ -91,7 +91,7 @@ class CI_Exceptions {
 	/**
 	 * Exception Logger
 	 *
-	 * Logs PHP generated error messages
+	 * Tasks PHP generated error messages
 	 *
 	 * @param	int	$severity	Log level
 	 * @param	string	$message	Error message

@@ -39,3 +39,8 @@ a.pagination-link{
 .cat-delete{
 	display:inline;
 }
+
+.inline-head h3, .inline-head h6 {
+	display: inline-block;
+	vertical-align: baseline;
+}

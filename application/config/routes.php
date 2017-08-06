@@ -8,5 +8,7 @@ $route['projects'] = 'projects/index';
 
 $route['clients'] = 'clients/index';
 
+$route['tasks'] = 'tasks/index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
